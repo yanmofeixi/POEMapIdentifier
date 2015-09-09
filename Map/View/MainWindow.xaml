@@ -1,0 +1,197 @@
+﻿<Window x:Class="Map.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Map"
+        WindowState ="Maximized">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel x:Name="ContentPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16">Zana等级</TextBlock>
+                <TextBox x:Name="Zana" Width="51" Margin="50,0,0,0" FontSize="16" Text="{Binding MapZanaLevel, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+                <TextBlock Margin="45,0,0,0" FontSize="16">地图品质</TextBlock>
+                <TextBox x:Name="MapQuality" Width="50" Margin="23,0,0,0" FontSize="16" Text="{Binding MapQuality, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+                <TextBlock Margin="45,0,0,0" FontSize="16"><Run Text="地图等级"/></TextBlock>
+                <TextBox x:Name="MapLevel" Width="50" Margin="15,0,0,0" FontSize="16" Text="{Binding MapLevel, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+                <RadioButton GroupName="MapColor" Content="蓝色地图" Margin="20,0,0,0" FontSize="16"/>
+                <RadioButton GroupName="MapColor" Content="黄色地图" Margin="10,0,0,0" IsChecked="{Binding MapYellow}" FontSize="16"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock FontSize="16">怪物群大小</TextBlock>
+                <TextBox Width="51" Margin="36,0,0,0" FontSize="16" Text="{Binding MapPackSize, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+                <TextBlock Margin="45,0,0,0" FontSize="16" Text="掉落稀有度"/>
+                <TextBox Width="50" Margin="7,0,0,0" FontSize="16" Text="{Binding MapRarity, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+                <TextBlock Margin="45,0,0,0" FontSize="16" Text="掉落数量"/>
+                <TextBox Width="50" Margin="15,0,0,0" FontSize="16" Text="{Binding MapQuantity, UpdateSourceTrigger = PropertyChanged, Mode=TwoWay}"/>
+                <TextBlock Margin="17,0,0,0" FontSize="16">鉴定</TextBlock>
+                <CheckBox Margin="5,4,0,0" IsChecked="{Binding MapIdentified}"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">碎片</TextBlock>
+                <CheckBox Margin="5,4,0,0" IsChecked="{Binding MapFragments}"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">腐化</TextBlock>
+                <CheckBox Margin="5,4,0,0" IsChecked="{Binding MapCorrupted}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
+                <TextBlock FontSize="16">地面效果</TextBlock>
+                <ComboBox x:Name="Ground" SelectedValuePath="Content" Width="91" FontSize="16">
+                    <ComboBoxItem IsSelected="True">无</ComboBoxItem>
+                    <ComboBoxItem>毒雾地面</ComboBoxItem>
+                    <ComboBoxItem>燃烧地面</ComboBoxItem>
+                    <ComboBoxItem>冰冻地面</ComboBoxItem>
+                    <ComboBoxItem>感电地面</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">脆弱诅咒</TextBlock>
+                <CheckBox x:Name="Vul" Margin="5,4,0,0" FontSize="16"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">元素诅咒</TextBlock>
+                <CheckBox x:Name="Ele" Margin="5,4,0,0"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">虚弱诅咒</TextBlock>
+                <CheckBox x:Name="Enf" Margin="5,4,0,0"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">时间诅咒</TextBlock>
+                <CheckBox x:Name="Temp" Margin="5,4,0,0"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">血魔法</TextBlock>
+                <CheckBox x:Name="BM"  Margin="5,4,0,0"/>
+                <TextBlock Margin="10,0,0,0" FontSize="16">减最大抗</TextBlock>
+                <CheckBox x:Name="Max"  Margin="5,4,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock FontSize="16">杀怪开门</TextBlock>
+                <ComboBox x:Name="Beyond" SelectedValuePath="Content" Width="91" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">聚居地</TextBlock>
+                <ComboBox x:Name="Habit" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>亡灵</ComboBoxItem>
+                    <ComboBoxItem>骷髅</ComboBoxItem>
+                    <ComboBoxItem>海妖</ComboBoxItem>
+                    <ComboBoxItem>人类</ComboBoxItem>
+                    <ComboBoxItem>恶魔</ComboBoxItem>
+                    <ComboBoxItem>动物</ComboBoxItem>
+                    <ComboBoxItem>远程怪</ComboBoxItem>
+                    <ComboBoxItem>羊人</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">图腾</TextBlock>
+                <ComboBox x:Name="Totem" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">元反</TextBlock>
+                <ComboBox x:Name="EleReflect" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">物反</TextBlock>
+                <ComboBox x:Name="PhyReflect" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Margin="0" FontSize="16">免疫诅咒</TextBlock>
+                <ComboBox x:Name="Curse" SelectedValuePath="Content" Width="91" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">投射物</TextBlock>
+                <ComboBox x:Name="Projectile" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">火抗</TextBlock>
+                <ComboBox x:Name="FireResist" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">冰抗</TextBlock>
+                <ComboBox x:Name="ColdResist" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">电抗</TextBlock>
+                <ComboBox x:Name="LightResist" SelectedValuePath="Content" Width="84"  FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock FontSize="16">击中中毒</TextBlock>
+                <ComboBox x:Name="Poison" SelectedValuePath="Content" Width="91" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">无回复</TextBlock>
+                <ComboBox x:Name="NoRegen" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True" Content="未知"/>
+                    <ComboBoxItem Content="无"/>
+                    <ComboBoxItem Content="有"/>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">蓝球</TextBlock>
+                <ComboBox x:Name="Power" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">绿球</TextBlock>
+                <ComboBox x:Name="Frenzy" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">红球</TextBlock>
+                <ComboBox x:Name="Endurance" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBlock Margin="0" FontSize="16">魔法怪</TextBlock>
+                <ComboBox x:Name="Magic" SelectedValuePath="Content" Width="91" Margin="16,0,0,0" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">稀有怪</TextBlock>
+                <ComboBox x:Name="Rare" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">双王</TextBlock>
+                <ComboBox x:Name="DoubleBoss" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="20,0,0,0" FontSize="16">分裂</TextBlock>
+                <ComboBox x:Name="Fracture" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Margin="20,0,0,0" FontSize="16">流亡</TextBlock>
+                <ComboBox x:Name="Exile" SelectedValuePath="Content" Width="84" FontSize="16">
+                    <ComboBoxItem IsSelected="True">未知</ComboBoxItem>
+                    <ComboBoxItem>无</ComboBoxItem>
+                    <ComboBoxItem>有</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                <Button Click="Cal_Button_Click" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="16">计算</Button>
+                <Button Click="Reset_Button_Click" Margin="20,5,0,0" HorizontalAlignment="Center" FontSize="16">重置</Button>
+            </StackPanel>
+            <TextBlock x:Name="FinalResultText"  FontSize="16"></TextBlock>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
